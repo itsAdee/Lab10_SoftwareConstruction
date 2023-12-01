@@ -11,19 +11,22 @@ public class VariableExpression implements Expression {
         this.name = name;
     }
     public String getName() {
-        return name;
+        return this.name;
     }
     @Override public String toString() {
-        return name;
+        return this.name;
     }
     @Override public boolean equals(Object thatObject) {
+    	if (thatObject == this) {
+    		return true;
+    	}
         if (!(thatObject instanceof VariableExpression)) {
             return false;
         }
         VariableExpression that = (VariableExpression) thatObject;
-        return this.name.equals(that.name);
+        return this.toString().equals(that.toString());
     }
     @Override public int hashCode() {
-        return name.hashCode();
+        return this.name.hashCode();
     }
 }

@@ -16,6 +16,9 @@ public class NumberExpression implements Expression {
         return Double.toString(value);
     }
     @Override public boolean equals(Object thatObject) {
+    	if (thatObject == this) {
+    		return true;
+    	}
         if (!(thatObject instanceof NumberExpression)) {
             return false;
         }

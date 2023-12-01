@@ -22,6 +22,9 @@ public class AdditionExpression implements Expression {
         return "(" + left.toString() + " + " + right.toString() + ")";
     }
     @Override public boolean equals(Object thatObject) {
+    	if (thatObject == this) {
+    		return true;
+    	}
         if (!(thatObject instanceof AdditionExpression)) {
             return false;
         }

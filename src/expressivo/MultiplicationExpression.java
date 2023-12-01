@@ -22,6 +22,9 @@ public class MultiplicationExpression implements Expression {
         return "(" + left.toString() + " * " + right.toString() + ")";
     }
     @Override public boolean equals(Object thatObject) {
+    	if (thatObject == this) {
+    		return true;
+    	}
         if (!(thatObject instanceof MultiplicationExpression)) {
             return false;
         }
