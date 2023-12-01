@@ -17,7 +17,9 @@ package expressivo;
 public interface Expression {
     
     // Datatype definition
-    //   TODO
+    // Abstract Function: Represents a polynomial expression of: + and *, nonnegative integers and floating-point numbers, and variables (case-sensitive nonempty strings of letters).
+    // Rep Invariant: true
+    // Safety from rep exposure: All fields are private and final.
     
     /**
      * Parse an expression.
@@ -52,6 +54,42 @@ public interface Expression {
     @Override
     public int hashCode();
     
-    // TODO more instance methods
+    /**
+     * Create a number expression.
+     * @param value the numeric value
+     * @return a number expression
+     */
+    public static Expression number(double value) {
+        return new NumberExpression(value);
+    }
+
+    /**
+     * Create a variable expression.
+     * @param name the variable name
+     * @return a variable expression
+     */
+    public static Expression variable(String name) {
+        return new VariableExpression(name);
+    }
+
+    /**
+     * Create an addition expression.
+     * @param left the left expression
+     * @param right the right expression
+     * @return an addition expression representing left + right
+     */
+    public static Expression add(Expression left, Expression right) {
+        return new AdditionExpression(left, right);
+    }
+
+    /**
+     * Create a multiplication expression.
+     * @param left the left expression
+     * @param right the right expression
+     * @return a multiplication expression representing left * right
+     */
+    public static Expression multiply(Expression left, Expression right) {
+        return new MultiplicationExpression(left, right);
+    }
     
 }
