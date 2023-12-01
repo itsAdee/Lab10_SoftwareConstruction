@@ -16,10 +16,13 @@ package expressivo;
  */
 public interface Expression {
     
-    // Datatype definition
-    // Abstract Function: Represents a polynomial expression of: + and *, nonnegative integers and floating-point numbers, and variables (case-sensitive nonempty strings of letters).
-    // Rep Invariant: true
-    // Safety from rep exposure: All fields are private and final.
+    /**
+     * Datatype definition:
+     * Expression = Number(n: double)
+     *            + Variable(name: String)
+     *            + Addition(left: Expression, right: Expression)
+     *            + Multiplication(left: Expression, right: Expression)
+     */
     
     /**
      * Parse an expression.
